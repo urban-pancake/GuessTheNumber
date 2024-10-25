@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #007BFF; /* Blue background */
+        }
+        .game-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"], input[type="text"] {
+            width: 80px;
+            padding: 5px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003d80;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Guess the Number</h1>
+        <p>Enter your name to start:</p>
+        <input type="text" id="name" placeholder="Your name">
+        <button onclick="startGame()">Start Game</button>
+        <div id="game" style="display:none;">
+            <p>Guess a number between 1 and 100</p>
+            <input type="number" id="guess" min="1" max="100">
+            <button onclick="checkGuess()">Guess</button>
+            <div class="message" id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        let userName = '';
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        const lowFeedback = [
+            "Too low, you clueless twit!",
+            "Are you even trying, you dimwit?",
+            "That's lower than your IQ, genius!",
+            "Digging for worms, are we?",
+            "You call that a guess, you fool?",
+            "Seriously? Even a toddler could do better!",
+            "You're aiming for the basement, aren't you?",
+            "Did you drop your brain somewhere?",
+            "That's so low, it's practically underground!",
+            "You must be joking, right? Try again, idiot!"
+        ];
+
+        const highFeedback = [
+            "Too high, you moron!",
+            "What are you aiming for, the moon?",
+            "That's higher than your ego, idiot!",
+            "Trying to reach the stars, dumbass?",
+            "You overshot it, you buffoon!",
+            "Are you trying to impress someone with that guess?",
+            "That's so high, it's in orbit!",
+            "Did you think this was a rocket launch?",
+            "You're not even close, Einstein!",
+            "Come on, get your head out of the clouds!"
+        ];
+
+        function startGame() {
+            userName = document.getElementById('name').value;
+            if (userName) {
+                document.getElementById('game').style.display = 'block';
+                document.querySelector('p').textContent = `Hello, ${userName}! Guess a number between 1 and 100`;
+            } else {
+                alert('Please enter your name to start the game.');
+            }
+        }
+
+        function checkGuess() {
+            const userGuess = document.getElementById('guess').value;
+            const message = document.getElementById('message');
+            if (userGuess < randomNumber) {
+                message.textContent = `${userName}, ${lowFeedback[Math.floor(Math.random() * lowFeedback.length)]}`;
+            } else if (userGuess > randomNumber) {
+                message.textContent = `${userName}, ${highFeedback[Math.floor(Math.random() * highFeedback.length)]}`;
+            } else {
+                message.textContent = `Holy shit, ${userName}! You actually got it right!`;
+            }
+        }
+    </script>
+</body>
+</html>
