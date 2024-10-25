@@ -20,6 +20,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
         }
         input[type="number"], input[type="text"] {
             width: 80px;
@@ -40,6 +42,7 @@
         .message {
             margin-top: 10px;
             font-size: 1.2em;
+            padding: 10px;
         }
     </style>
 </head>
@@ -64,35 +67,63 @@
         const randomNumber = Math.floor(Math.random() * 100) + 1;
 
         const lowFeedback = [
-            "Too low, you clueless twit!",
-            "Are you even trying, you dimwit?",
-            "That's lower than your IQ, genius!",
-            "Digging for worms, are we?",
-            "You call that a guess, you fool?",
-            "Seriously? Even a toddler could do better!",
-            "You're aiming for the basement, aren't you?",
-            "Did you drop your brain somewhere?",
-            "That's so low, it's practically underground!",
-            "You must be joking, right? Try again, idiot!"
+            "TOO LOW! Are you trying to find oil down there, you numbskull?",
+            "TOO LOW! Even my grandma could guess better, and she's terrible at math!",
+            "TOO LOW! Did you learn counting from a goldfish?",
+            "TOO LOW! Are you trying to reach the center of the Earth?",
+            "TOO LOW! Congratulations, you've discovered negative intelligence!",
+            "TOO LOW! Were you dropped on your head as a baby?",
+            "TOO LOW! Are you allergic to correct answers?",
+            "TOO LOW! My pet rock makes better guesses!",
+            "TOO LOW! Did you mistake this for a limbo contest?",
+            "TOO LOW! Are you trying to win a competition for worst guesser?",
+            "TOO LOW! Did you learn math from a banana?",
+            "TOO LOW! Even a broken calculator would do better!",
+            "TOO LOW! Are you trying to find dinosaur fossils?",
+            "TOO LOW! Did you get your degree from a cereal box?",
+            "TOO LOW! Are you practicing to be professionally wrong?",
+            "TOO LOW! Did you mistake this for a submarine expedition?",
+            "TOO LOW! Even a sloth could guess faster and better!",
+            "TOO LOW! Are you searching for your lost brain cells down there?",
+            "TOO LOW! Did you get your math skills from a drunken pigeon?",
+            "TOO LOW! Congratulations, you've reached rock bottom... again!",
+            "TOO LOW! Are you trying to communicate with earthworms?",
+            "TOO LOW! Did you learn counting from a defective abacus?",
+            "TOO LOW! Even my neighbor's goldfish is better at this!",
+            "TOO LOW! Are you trying to find Atlantis with that guess?"
         ];
 
         const highFeedback = [
-            "Too high, you moron!",
-            "What are you aiming for, the moon?",
-            "That's higher than your ego, idiot!",
-            "Trying to reach the stars, dumbass?",
-            "You overshot it, you buffoon!",
-            "Are you trying to impress someone with that guess?",
-            "That's so high, it's in orbit!",
-            "Did you think this was a rocket launch?",
-            "You're not even close, Einstein!",
-            "Come on, get your head out of the clouds!"
+            "TOO HIGH! Are you trying to count to infinity, genius?",
+            "TOO HIGH! Did NASA hire you for your astronomical guesses?",
+            "TOO HIGH! Are you high on stupid juice?",
+            "TOO HIGH! Even birds don't fly that high, Einstein!",
+            "TOO HIGH! Did you mistake this for a space exploration?",
+            "TOO HIGH! Are you trying to reach your ego?",
+            "TOO HIGH! Did you learn counting from a kangaroo on a trampoline?",
+            "TOO HIGH! Are you trying to hit the ozone layer?",
+            "TOO HIGH! Congratulations, you've discovered new heights of wrongness!",
+            "TOO HIGH! Did you get your math skills from a jumping jack?",
+            "TOO HIGH! Are you trying to high-five the sun?",
+            "TOO HIGH! Even Superman doesn't fly that high!",
+            "TOO HIGH! Did you mistake this for a rocket launch countdown?",
+            "TOO HIGH! Are you trying to discover new planets?",
+            "TOO HIGH! Did you learn math from a mountain goat?",
+            "TOO HIGH! Are you practicing to be an astronaut?",
+            "TOO HIGH! Even clouds aren't that high, dummy!",
+            "TOO HIGH! Did you get your counting skills from a skyscraper?",
+            "TOO HIGH! Are you trying to reach your dreams of being wrong?",
+            "TOO HIGH! Congratulations, you've achieved orbital stupidity!",
+            "TOO HIGH! Did you learn numbers from a giraffe?",
+            "TOO HIGH! Are you trying to find life on Mars with that guess?",
+            "TOO HIGH! Even my expectations weren't that high!",
+            "TOO HIGH! Did you get your math degree from a hot air balloon?"
         ];
 
         function startGame() {
             userName = document.getElementById('name').value;
             if (userName) {
-                document.getElementById('name-input').style.display = 'none'; // Verbergt de naam-input sectie
+                document.getElementById('name-input').style.display = 'none';
                 document.getElementById('game').style.display = 'block';
                 document.querySelector('#game p').textContent = `Hello, ${userName}! Guess a number between 1 and 100`;
             } else {
@@ -108,7 +139,7 @@
             } else if (userGuess > randomNumber) {
                 message.textContent = `${userName}, ${highFeedback[Math.floor(Math.random() * highFeedback.length)]}`;
             } else {
-                message.textContent = `Holy shit, ${userName}! You actually got it right!`;
+                message.textContent = `Holy shit, ${userName}! You actually got it right! I guess even a broken clock is right twice a day!`;
             }
         }
     </script>
