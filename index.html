@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #007BFF; /* Blue background */
+            background-color: #007BFF;
         }
         .game-container {
             text-align: center;
@@ -46,9 +46,11 @@
 <body>
     <div class="game-container">
         <h1>Guess the Number</h1>
-        <p>Enter your name to start:</p>
-        <input type="text" id="name" placeholder="Your name">
-        <button onclick="startGame()">Start Game</button>
+        <div id="name-input">
+            <p>Enter your name to start:</p>
+            <input type="text" id="name" placeholder="Your name">
+            <button onclick="startGame()">Start Game</button>
+        </div>
         <div id="game" style="display:none;">
             <p>Guess a number between 1 and 100</p>
             <input type="number" id="guess" min="1" max="100">
@@ -90,8 +92,9 @@
         function startGame() {
             userName = document.getElementById('name').value;
             if (userName) {
+                document.getElementById('name-input').style.display = 'none'; // Verbergt de naam-input sectie
                 document.getElementById('game').style.display = 'block';
-                document.querySelector('p').textContent = `Hello, ${userName}! Guess a number between 1 and 100`;
+                document.querySelector('#game p').textContent = `Hello, ${userName}! Guess a number between 1 and 100`;
             } else {
                 alert('Please enter your name to start the game.');
             }
